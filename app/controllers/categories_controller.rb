@@ -1,8 +1,11 @@
 class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
+  before_filter :authenticate_user!, :exept => [:show, :index]
+
   def index
     @categories = Category.all
+
 
     respond_to do |format|
       format.html # index.html.erb

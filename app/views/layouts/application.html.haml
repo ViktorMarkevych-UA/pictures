@@ -12,11 +12,26 @@
           %a{:href => "/"} My Analitics
         #user-navigation
           %ul.wat-cf
-            %li
-              %a{:href => "#"}= t("web-app-theme.profile", :default => "Profile")
-            %li
-              %a{:href => "#"}= t("web-app-theme.settings", :default => "Settings")
-            %li
+            #footer
+              .block
+                %li
+                  - if user_signed_in?
+                    Signed in as #{current_user.email}.
+                    Created at: #{current_user.created_at}
+                    %br
+                    Not you?
+                    |
+                    \#{ link_to "Sign out", destroy_user_session_path, :method => :delete }
+                  - else
+                    = link_to "Sign up", new_user_registration_path
+                    or #{ link_to "Sign in", new_user_session_path }
+            -#%li
+            -#  %a{:href => "#"}= t("web-app-theme.profile", :default => "Profile1")
+            -#%li
+            -#  %a{:href => "#"}= t("web-app-theme.profile", :default => "Profile")
+            -#%li
+            -#  %a{:href => "#"}= t("web-app-theme.settings", :default => "Settings")
+            -#%li
               %a.logout{:href => "/logout"}= t("web-app-theme.logout", :default => "Logout")
         #main-navigation
           %ul.wat-cf
@@ -25,6 +40,8 @@
           - flash.each do |type, message|
             %div{:class => "message #{type}"}
               %p= message
+              %p.notice= notice
+              %p.alert= alert
         #main
           = yield
           #footer

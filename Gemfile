@@ -9,6 +9,7 @@ gem 'mysql2'
 gem 'haml'
 gem 'devise'
 gem 'will_paginate'
+gem 'nifty-generators'
 gem 'paperclip'
 gem 'therubyracer', :platform => :ruby
 
