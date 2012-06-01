@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
-  before_filter :authenticate_user!, :exept => [:show, :index]
+  before_filter :authenticate_user!, :except => [:show, :index]
 
   def index
     @categories = Category.all
