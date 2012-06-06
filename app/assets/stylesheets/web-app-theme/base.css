@@ -11,6 +11,13 @@
 
 .wat-cf {display: inline-block;}
 
+.my_menu {
+    border: 1px solid black;
+    border: none;
+    margin: 0;
+    white-space: nowrap;
+}
+
 /* Hides from IE-mac \*/
 * html .wat-cf {height: 1%;}
 .wat-cf {display: block;}
@@ -53,7 +60,7 @@ body {
 }
 
 #main {  
-  width: 70%;
+  width: 100%;
   float: left;    
 }
 

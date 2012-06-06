@@ -1,0 +1,25 @@
+%p
+  = link_to catlist_path(:id => @picture.category.id) do
+    %div{:style => "float:left;margin-right: 30px"}
+      %p= "Like: #{@picture.likes_count.to_i}"
+      %p= "Comments: #{@picture.comments.count.to_i}"
+      %p= image_tag @picture.pict(:thumb)
+%p
+  = image_tag(@picture.pict.url)
+  %br
+    = link_to "Like", like_path(@picture.id), :class => "button", :style => "float: none; display:inline"
+    = @picture.likes_count
+  %p
+  - @picture.comments.each do |comment|
+    %p
+      = "#{comment.user.email} said:"
+      = comment.body
+
+  = form_for :comment, :url => comment_index_path do |f|
+    = f.text_area :body
+    = f.hidden_field :picture_id, :value => @picture.id
+    %br
+    = f.submit :value => "save"
+  %p
+    = link_to 'Back', :back
+  -#= link_to "add comment", "#"

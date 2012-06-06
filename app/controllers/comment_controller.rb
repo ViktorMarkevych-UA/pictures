@@ -1,19 +1,17 @@
 class CommentController < ApplicationController
+
+  def new
+
+  end
+
+  def all_comm
+    @comments = Comment.order("created_at ASC")
+  end
+
   def create
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.build(params[:comment])
-    @comment.save
-
-    redirect_to @post
-
+    comment = current_user.comments.new(params[:comment])
+    comment.save!
+    redirect_to :back
   end
-
-  def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
-
-    redirect_to @comment.post
-  end
-
 end
 

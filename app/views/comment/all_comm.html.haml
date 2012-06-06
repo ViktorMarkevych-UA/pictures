@@ -1,0 +1,6 @@
+- @comments.each do |comment|
+  %br
+    = "#{comment.user.email} said:"
+    = comment.body
+    %p
+      = "#{comment.created_at}"

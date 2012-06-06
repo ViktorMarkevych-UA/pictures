@@ -4,7 +4,20 @@ Analitics::Application.routes.draw do
 
   resources :categories
 
+  resources :pictures
+
+  resources :comment
+  resources :event
+
+  #resources :like
+
   root :to => 'categories#index'
 
+  match "/catlist" => "categories#catlist"
+
+  #match "/show/:id" => "pictures#show"
+  get '/like/:id', :to => 'pictures#like', :as => :like
+  get '/picts', :to => 'pictures#all_img', :as => :all_img
+  get '/comms', :to => 'comment#all_comm', :as => :all_comm
 
 end

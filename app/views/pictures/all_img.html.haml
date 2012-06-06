@@ -1,0 +1,9 @@
+%br
+- @pictures.each do |img|
+  = link_to catlist_path(:id => img.category.id) do
+    %div{:style => "float:left; width:150px;height: 170px"}
+      = "Comments: #{img.comments.count.to_i}"
+      |
+      \#{"Like: #{img.likes_count.to_i}"}
+      %p= image_tag img.pict(:thumb)
+.clear

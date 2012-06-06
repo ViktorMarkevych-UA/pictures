@@ -1,0 +1,5 @@
+%h1 #{@category.name}
+-@pictures.each do |pict|
+  = link_to image_tag(pict.pict.url(:thumb)), picture_path(pict)
+= will_paginate @pictures
+.clear
