@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120606105531) do
+ActiveRecord::Schema.define(:version => 20120608115046) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(:version => 20120606105531) do
   end
 
   add_index "comments", ["picture_id"], :name => "index_comments_on_picture_id"
+
+  create_table "events", :force => true do |t|
+    t.string   "event_type"
+    t.integer  "event_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "likes", :force => true do |t|
     t.integer  "picture_id"

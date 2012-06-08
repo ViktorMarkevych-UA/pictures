@@ -1,10 +1,14 @@
 %div{:style => "float: left; width:100%"}
-  %div{:style => "float: left; width:200px; height: 100px; margin: 50px 0 50px 50px;  background: #828282;"}
+  %div{:style => "float: left; width:30%; margin: 50px 0 50px 0;  background: #828282;"}
     %strong
-      %p{:style => "padding-left:10px;"} Users
-
-
-  %div{:style => "float: left; width:600px; height: 100px; margin: 50px 0 50px 50px;  background: #828282;"}
+      %p{:style => "margin: 0 0 0 20px;"} Users
+    - @users.each do |u|
+      %p{:style => "margin: 5px 0 5px 10px;"}
+        = u.email
+  %div{:style => "float: left; width:60%; margin: 50px 0 50px 8%;  background: #828282;"}
     %strong
-      %p{:style => "padding-left:10px;"} Evens
+      %p{:style => "margin: 0 0 0 20px;"} Evens
+    - @users.each do |u|
+      %p{:style => "margin: 5px 0 5px 10px;"}
+        = u.id
 .clear

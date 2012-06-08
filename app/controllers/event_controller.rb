@@ -1,5 +1,7 @@
 class EventController < ApplicationController
-  def index
 
+  def index
+    @users = User.order("created_at ASC").all
   end
+
 end

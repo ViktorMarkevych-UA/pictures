@@ -5,7 +5,8 @@ class CommentController < ApplicationController
   end
 
   def all_comm
-    @comments = Comment.order("created_at ASC")
+    @comments = Comment.order("created_at ASC").all
+
   end
 
   def create
