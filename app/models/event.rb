@@ -1,9 +1,9 @@
 class Event < ActiveRecord::Base
-  attr_accessible :event_id, :event_type, :string
+  attr_accessible :eventtable_body, :eventtable_id, :eventtable_type
 
-  belongs_to :eventtable, :polymorphic => true
+  belongs_to :event, :polymorphic => true
 
   EVENT=%w{User Comment Like}
-  validates :event_type, :presence => true, :inclusion => {:in => EVENT}
+  validates :eventtable_type, :presence => true, :inclusion => {:in => EVENT}
 
 end

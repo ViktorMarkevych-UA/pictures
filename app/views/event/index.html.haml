@@ -5,10 +5,20 @@
     - @users.each do |u|
       %p{:style => "margin: 5px 0 5px 10px;"}
         = u.email
-  %div{:style => "float: left; width:60%; margin: 50px 0 50px 8%;  background: #828282;"}
+  %div{:style => "float: left; width:40%; margin: 50px 0 50px 8%;  background: #828282;"}
     %strong
       %p{:style => "margin: 0 0 0 20px;"} Evens
     - @users.each do |u|
       %p{:style => "margin: 5px 0 5px 10px;"}
         = u.id
+        = link_to "Navigation", "#"
+        |
+        \#{ link_to "User sign in", event_path( :id => u.id,:body => u.current_sign_in_at ) }
+        |
+        \#{ link_to "User sign out", event_path( :id => u.id,:body => u.last_sign_in_at ) }
+        |
+        \#{ link_to "Likes", "#" }
+        |
+        \#{ link_to "Comments", event_path( :id => u.id ) }
+        -#,:body => Comment.find_by_user_id(u.id)
 .clear

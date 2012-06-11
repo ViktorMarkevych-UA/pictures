@@ -31,10 +31,11 @@ ActiveRecord::Schema.define(:version => 20120608115046) do
   add_index "comments", ["picture_id"], :name => "index_comments_on_picture_id"
 
   create_table "events", :force => true do |t|
-    t.string   "event_type"
-    t.integer  "event_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "eventtable_type"
+    t.integer  "eventtable_id"
+    t.text     "eventtable_body"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "likes", :force => true do |t|

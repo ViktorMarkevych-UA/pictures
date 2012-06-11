@@ -10,8 +10,8 @@ class Comment < ActiveRecord::Base
 
 
   def create_com
-  @eve = Event.new(:event_type => "User")
-  @eve.save
+    self.events.create(:eventtable_body => body)
   end
 
 end
+
