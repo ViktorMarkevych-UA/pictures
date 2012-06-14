@@ -216,3 +216,15 @@ Devise.setup do |config|
   # end
   config.scoped_views = true
 end
+
+Warden::Manager.before_logout do |user,auth,opts|
+  if user.kind_of? User
+    user.events.create(:eventtable_body => "sign_in", :user_id => user.id)
+  end
+end
+
+Warden::Manager.after_authentication do |user,auth,opts|
+  if user.kind_of? User
+    user.events.create(:eventtable_body => "sign_out", :user_id => user.id)
+  end
+end

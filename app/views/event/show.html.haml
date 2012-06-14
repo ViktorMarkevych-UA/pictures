@@ -1,0 +1,24 @@
+%h1 tits
+%ul
+  - @events.each do |ev|
+    %li
+      - unless ev.eventtable_type == "Navigation"
+        - nice = nice_params(ev)
+        = nice[:user]
+        = nice[:description_1]
+        = link_to nice[:link], nice[:url]
+        = nice[:description_2]
+        %strong
+          = nice[:data]
+      - else
+        = ev.eventtable_body
+
+      -#- case ev.eventtable_type
+      -#  - when "Like"
+      -#    = "#{ev.eventtable.user.email} appreciated the"
+      -#    \#{link_to 'picture', picture_path(ev.eventtable.picture_id)}
+      -#    with its id #{ev.eventtable.picture_id}
+      -#  - when "User"
+      -#    = "#{ev.eventtable_body } in: #{ev.created_at}"
+      -#  - when "Comment"
+      -#    = ev.eventtable.body

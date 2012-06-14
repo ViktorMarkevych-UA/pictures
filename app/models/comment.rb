@@ -10,7 +10,7 @@ class Comment < ActiveRecord::Base
 
 
   def create_com
-    self.events.create(:eventtable_body => body)
+    self.events.create(:eventtable_body => self.body, :user_id => self.user_id)
   end
 
 end

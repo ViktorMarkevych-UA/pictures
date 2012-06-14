@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20120608115046) do
   create_table "events", :force => true do |t|
     t.string   "eventtable_type"
     t.integer  "eventtable_id"
+    t.integer  "user_id"
     t.text     "eventtable_body"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false

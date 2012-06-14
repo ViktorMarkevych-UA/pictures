@@ -5,8 +5,7 @@ class CommentController < ApplicationController
   end
 
   def all_comm
-    @comments = Comment.order("created_at ASC").all
-
+    @comments = Comment.paginate(:page => params[:page], :per_page => 5).order("created_at ASC").all
   end
 
   def create

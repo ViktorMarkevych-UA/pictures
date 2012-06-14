@@ -1,6 +1,6 @@
 Analitics::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { :sessions => "sessions" }
 
   resources :categories
 
@@ -8,7 +8,9 @@ Analitics::Application.routes.draw do
 
   resources :comment
 
-  resources :event
+  resources :event, :except => [:show] do
+    get 'show/:event_type', :on => :member, :action => :show, :as => :show
+  end
 
   #resources :like
 
@@ -16,10 +18,7 @@ Analitics::Application.routes.draw do
 
   match "/catlist" => "categories#catlist"
 
-  #match "event/show/:id" => "event#show"
-
   get '/like/:id', :to => 'pictures#like', :as => :like
   get '/picts', :to => 'pictures#all_img', :as => :all_img
   get '/comms', :to => 'comment#all_comm', :as => :all_comm
-
 end

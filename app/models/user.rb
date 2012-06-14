@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   after_create :create_use
 
   def create_use
-    self.events.create
+    self.events.create(:eventtable_body => "created_at", :user_id => user.id)
   end
 
 
