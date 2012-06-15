@@ -8,5 +8,5 @@
     %th
 
   - @categories.each do |category|
-    %tr
-      %td= link_to category.name, catlist_path(:id => category.id)
+    |
+    %tr= link_to category.name, catlist_path(:id => category.id)
