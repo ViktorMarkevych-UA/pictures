@@ -7,6 +7,8 @@ module EventHelper
       { :user => obj.eventtable.email, :url => "", :link => "", :description_1 => obj.eventtable_body, :description_2 =>"in", :data => obj.created_at}
     when "Comment"
       {:user => obj.eventtable.user.email, :url => "", :link=> "", :description_1 => "", :description_2 =>"wrote", :data => obj.eventtable_body}
+    when "Navigation"
+      {:user => "", :url => "", :link=> "", :description_1 => "", :description_2 =>"", :data => obj.eventtable_body}
     else
       {}
     end
