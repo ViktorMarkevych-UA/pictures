@@ -1,16 +1,33 @@
 require 'spec_helper'
 
 describe User do
-  #it "Create valid user" do
-  #  @obj = FactoryGirl.create(:user)
-  #  assert(@obj.valid?)
-  #end
+  it "Create valid user" do
+    @obj = FactoryGirl.create(:user)
+    assert(@obj.valid?)
+  end
 
   it "Should set unique email" do
     obj = FactoryGirl.create(:user, :email => "a@b.com")
     obj2 = FactoryGirl.build(:user, :email => "a@b.com")
     assert(obj.valid?) and assert(!obj2.valid?)
   end
+  it "Should have reflections" do
+    User.reflect_on_association(:pictures).macro.should == :has_many
+    User.reflect_on_association(:comments).macro.should == :has_many
+    User.reflect_on_association(:events).macro.should == :has_many
+  end
+
+  context "after_create" do
+    context "create_use" do
+      it "should create event after user is created" do
+        Event.all.count.should eq 0
+        3.times{FactoryGirl.create(:user)}
+        Event.all.count.should eq 3
+      end
+    end
+  end
+
+
 
 end
     #it "Create invalid user" do
