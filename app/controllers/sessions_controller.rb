@@ -2,7 +2,6 @@ class SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
   def new
-    "c"
     super
     Event.create
   end

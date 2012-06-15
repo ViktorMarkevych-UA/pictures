@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
 
   has_many :events, :as => :eventtable
 
-  # attr_accessible :title, :body
   after_create :create_use
 
   def create_use

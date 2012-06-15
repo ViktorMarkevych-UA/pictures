@@ -25,14 +25,6 @@
                   - else
                     = link_to "Sign up", new_user_registration_path
                     or #{ link_to "Sign in", new_user_session_path }
-            -#%li
-            -#  %a{:href => "#"}= t("web-app-theme.profile", :default => "Profile1")
-            -#%li
-            -#  %a{:href => "#"}= t("web-app-theme.profile", :default => "Profile")
-            -#%li
-            -#  %a{:href => "#"}= t("web-app-theme.settings", :default => "Settings")
-            -#%li
-              %a.logout{:href => "/logout"}= t("web-app-theme.logout", :default => "Logout")
         #main-navigation
           %ul.wat-cf
       #wrapper.wat-cf

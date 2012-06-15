@@ -8,7 +8,6 @@ class Comment < ActiveRecord::Base
 
   after_create :create_com
 
-
   def create_com
     self.events.create(:eventtable_body => self.body, :user_id => self.user_id)
   end
