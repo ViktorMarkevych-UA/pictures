@@ -12,10 +12,12 @@ class User < ActiveRecord::Base
 
   has_many :events, :as => :eventtable
 
+  validates :email, :presence => true, :uniqueness => true
+
   after_create :create_use
 
   def create_use
-    self.events.create(:eventtable_body => "created_at", :user_id => user.id)
+    self.events.create(:eventtable_body => "created_at", :user_id => self.id)
   end
 
 

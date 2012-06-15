@@ -15,6 +15,7 @@ gem 'therubyracer', :platform => :ruby
 
 
 
+
 group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
@@ -22,6 +23,7 @@ group :development, :test do
   gem 'hpricot'
   gem 'ruby_parser'
   gem 'web-app-theme', '~> 0.7.0'
+  gem 'factory_girl_rails'
 end
 
 
