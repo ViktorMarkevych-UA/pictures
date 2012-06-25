@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Category do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it "Should have reflections" do
+    Category.reflect_on_association(:pictures).macro.should == :has_many
+  end
 end

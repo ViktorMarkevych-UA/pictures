@@ -4,7 +4,8 @@ class Event < ActiveRecord::Base
   belongs_to :eventtable, :polymorphic => true
   belongs_to :user, :dependent => :destroy
 
-  EVENT=%w{Navigation User Comment Like}
+  EVENT = %w{Navigation User Comment Like}
   validates :eventtable_type, :presence => true, :inclusion => {:in => EVENT}
+
 
 end
