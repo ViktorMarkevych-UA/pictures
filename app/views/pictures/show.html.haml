@@ -5,7 +5,7 @@
       %p= "Comments: #{@picture.comments.count.to_i}"
       %p= image_tag @picture.pict(:thumb)
 %p
-  = image_tag(@picture.pict.url)
+  = link_to image_tag(@picture.pict.url)#, :onclick => "sendTracking(this, '#{current_user.id}');"
   %br
     = link_to "Like", like_path(@picture.id), :class => "button", :style => "float: none; display:inline"
     = @picture.likes_count

@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   before_filter :event_links
 
   def event_links
-    Event.create(:eventtable_type => "Navigation", :user_id => current_user.id, :eventtable_body => request.env["REQUEST_URI"] )
+    Event.create(:eventtable_type => "Navigation", :user_id => current_user.id, :eventtable_body => request.env["REQUEST_URI"] ) if current_user
   end
 end
