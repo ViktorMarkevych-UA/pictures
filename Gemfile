@@ -21,7 +21,7 @@ group :development, :test do
   gem 'ruby_parser'
   gem 'web-app-theme', '~> 0.7.0'
   gem 'factory_girl'
-  gem 'shoulda'
+  gem 'shoulda', :require => false
 end
 
 # Gems used only for assets and not required

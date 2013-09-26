@@ -1,11 +1,7 @@
 class PicturesController < ApplicationController
 
   def index
-    @picture = Pictures.all
-  end
-
-  def all_img
-    @pictures = Picture.order("likes_count DESC")
+    @pictures = Picture.order("likes_count DESC").all
   end
 
   def show
