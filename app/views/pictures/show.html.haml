@@ -7,7 +7,7 @@
 %p
   = link_to image_tag(@picture.pict.url)#, :onclick => "sendTracking(this, '#{current_user.id}');"
   %br
-    = link_to "Like", like_path(@picture.id), :class => "button", :style => "float: none; display:inline"
+    = link_to "Like", picture_likes_path(@picture.id), :method => :post, :class => "button", :style => "float: none; display:inline"
     = @picture.likes_count
   %p
   - @picture.comments.each do |comment|
@@ -15,7 +15,7 @@
       = "#{comment.user.email} said:"
       = comment.body
 
-  = form_for :comment, :url => comment_index_path do |f|
+  = form_for :comment, :url => comments_path do |f|
     = f.text_area :body
     = f.hidden_field :picture_id, :value => @picture.id
     %br
