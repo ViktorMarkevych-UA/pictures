@@ -15,7 +15,9 @@
 /tmp
 public/system/pictures/picts/
 public/system/*
-.idea/
+.idea/*
 
 .rvmrc
-
+config/database.yml
+db/schema.rb
+Gemfile.lock
