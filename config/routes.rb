@@ -3,7 +3,7 @@ Analitics::Application.routes.draw do
   devise_for :users, :controllers => { :sessions => "sessions" }
 
   resources :categories do
-    post 'random/:category_id', :on => :collection, :action => :rand_method, :as => :random
+    resources :pictures, :only => [:index]
   end
 
   resources :pictures, :only => [:index, :show] do
@@ -15,9 +15,5 @@ Analitics::Application.routes.draw do
     get 'show/:event_type', :on => :member, :action => :show, :as => :show
   end
 
-  #resources :like
-
   root :to => 'categories#index'
-
-  get '/catlist', :to => 'categories#catlist', :as => :catlist
 end

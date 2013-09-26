@@ -2,35 +2,9 @@
 
 - @categories.each do |category|
   |
-  = link_to category.name, catlist_path(:id => category.id), :class => "category", "data-id" => category.id
+  = link_to category.name, category_pictures_path(category.id), :class => "category"
 
 .i_modal_window{:style => "display: none;"}
   %div
     %p
     = image_tag "#", :id => "rand_pict"
-
-:javascript
-  $(document).ready(function() {
-     $("a.category").click(function(event) {
-        var id = $(this).data("id");
-        var ref = '#{request.protocol}#{request.host_with_port}' + $(this).attr("href");
-        $(".i_modal_window p").text(ref);
-        $.ajax({
-          type: "POST",
-          url: "/categories/random/" + id,
-          success: function(request) {
-            $('#rand_pict').attr('src', request);
-          }
-        });
-        $(".i_modal_window").modal(
-        {
-          containerCss: { height:'auto',width:'auto'},
-          overlayClose: true,
-          onClose: function(){
-             window.location = ref;
-          }
-        });
-        event.preventDefault();
-     });
-   });
-.clear
