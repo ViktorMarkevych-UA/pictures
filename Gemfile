@@ -5,13 +5,13 @@ gem 'rails', '3.2.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+gem 'pg'
 gem 'haml'
 gem 'devise'
 gem 'will_paginate'
 #gem 'nifty-generators'
 gem 'paperclip'
-gem 'therubyracer', :platform => :ruby
+gem 'therubyracer'
 
 group :development, :test do
   gem 'capybara'
