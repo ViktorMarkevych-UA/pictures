@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :eventtable_body, :eventtable_id, :eventtable_type, :user_id
+  # attr_accessible :eventtable_body, :eventtable_id, :eventtable_type, :user_id
 
   belongs_to :eventtable, :polymorphic => true
   belongs_to :user, :dependent => :destroy

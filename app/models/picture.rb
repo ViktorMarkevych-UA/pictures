@@ -1,10 +1,10 @@
 class Picture < ActiveRecord::Base
   belongs_to :category
   has_many :comments
-  has_many :users, :through => :like
   has_many :likes
+  has_many :users, :through => :likes
 
-  attr_accessible :category_id, :pict
+  # attr_accessible :category_id, :pict
 
   validates :category_id, :presence => true
 
