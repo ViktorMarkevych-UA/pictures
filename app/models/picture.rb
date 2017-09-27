@@ -9,4 +9,5 @@ class Picture < ActiveRecord::Base
   validates :category_id, :presence => true
 
   has_attached_file :pict, :styles => { :large => "640x480", :medium => "300x300>", :thumb => "100x100>" }
+  validates_attachment_content_type :pict, content_type: /\Aimage\/.*\Z/
 end
