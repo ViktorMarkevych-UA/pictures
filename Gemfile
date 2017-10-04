@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.0'
+gem 'rails', '5.1.4'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -22,6 +22,7 @@ group :development, :test do
   gem 'web-app-theme', '~> 0.7.0'
   gem 'factory_girl'
   gem 'shoulda', :require => false
+  gem 'listen'
 end
 
 # Gems used only for assets and not required
