@@ -1,46 +1,87 @@
 !!!
 %html
   %head
-    %title My Analitics
-    = stylesheet_link_tag 'application'
-    = javascript_include_tag  'application'
-    = csrf_meta_tag
+    %title Cool Chat
+    = csrf_meta_tags
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
   %body
-    #container
-      #header
-        %h1
-          = link_to 'Cool Chat', root_path
-        #user-navigation
-          %ul.wat-cf
-            #footer
-              .block
+    %nav.navbar.navbar-default
+      .container-fluid
+        .row{ style: 'padding: 20px 0 20px 0;'}
+          .col-lg-2
+            = image_tag 'rails.png'
+          .col-lg-8
+          .col-lg-2
+            .navbar-header
+              %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+                %span.sr-only Toggle navigation
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+            #bs-example-navbar-collapse-1.collapse.navbar-collapse
+              %ul.nav.navbar-nav
                 %li
                   - if user_signed_in?
                     = "Signed in as #{current_user.email}"
+                    |
+                    = link_to 'Log out', destroy_user_session_path(current_user), method: :delete
                   - else
                     = link_to 'Sign up', new_user_registration_path
                     or #{link_to 'Sign in', new_user_session_path}
-        #main-navigation
-          %ul.wat-cf
-      #wrapper.wat-cf
-        .my_menu
-          = link_to 'Categories', categories_path
-          |
-          = link_to 'All Pictures', pictures_path
-          |
-          = link_to 'All Comments', comments_path
-          |
-          = link_to 'User actions', events_path
+    .container-fluid
+      = yield
+    %footer.footer.navbar-fixed-bottom
+      %p Copyright &copy; 2013 Cool Chat
 
-        .flash
-          - flash.each do |type, message|
-            %div{ class: "message #{type}" }
-              %p= message
-              %p.notice= notice
-              %p.alert= alert
-        #main
-          = yield
-          #footer
-            .block
-              %p
-                Copyright &copy; 2013 Cool Chat
+-#!!!
+-#%html
+-#  %head
+-#    %title My Analitics
+-#    = stylesheet_link_tag 'application'
+-#    = javascript_include_tag  'application'
+-#    = csrf_meta_tag
+-#  %body
+-#    #container
+-#      #header
+-#        %h1
+-#          = link_to 'Cool Chat', root_path
+-#        #user-navigation
+-#          %ul.wat-cf
+-#            #footer
+-#              .block
+-#                %li
+-#                  - if user_signed_in?
+-#                    = "Signed in as #{current_user.email}"
+-#                    or
+-#                  - else
+-#                    = link_to 'Sign up', new_user_registration_path
+-#                    or #{link_to 'Sign in', new_user_session_path}
+-#        #main-navigation
+-#          %ul.wat-cf
+-#      #wrapper.wat-cf
+-#        .my_menu
+-#          = link_to 'Categories', categories_path
+-#          |
+-#          = link_to 'All Pictures', pictures_path
+-#          |
+-#          = link_to 'All Comments', comments_path
+-#          |
+-#          = link_to 'User actions', events_path
+-#
+-#        .flash
+-#          - flash.each do |type, message|
+-#            %div{ class: "message #{type}" }
+-#              %p= message
+-#              %p.notice= notice
+-#              %p.alert= alert
+-#        #main
+-#          = yield
+-#          #footer
+-#            .block
+-#              %p
+-#                Copyright &copy; 2013 Cool Chat
