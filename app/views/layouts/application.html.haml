@@ -9,7 +9,7 @@
     #container
       #header
         %h1
-          = link_to 'Like Chat', root_path
+          = link_to 'Cool Chat', root_path
         #user-navigation
           %ul.wat-cf
             #footer
@@ -34,7 +34,7 @@
 
         .flash
           - flash.each do |type, message|
-            %div{:class => "message #{type}"}
+            %div{ class: "message #{type}" }
               %p= message
               %p.notice= notice
               %p.alert= alert
@@ -43,6 +43,4 @@
           #footer
             .block
               %p
-                Copyright &copy; #{Time.now.year} My Analitics.
-        #sidebar
-          = yield :sidebar
+                Copyright &copy; 2013 Cool Chat

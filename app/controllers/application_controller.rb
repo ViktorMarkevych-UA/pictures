@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
   before_action :event_links
 
   def event_links
-    Event.create(:eventtable_type => "Navigation", :user_id => current_user.id, :eventtable_body => request.env["REQUEST_URI"] ) if current_user
+    if user_signed_in?
+      current_user.events.create(eventtable_type: 'Navigation',
+                                 eventtable_body: request.env['REQUEST_URI'] )
+    end
   end
 end

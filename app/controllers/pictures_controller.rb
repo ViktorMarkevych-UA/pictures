@@ -10,7 +10,7 @@ class PicturesController < ApplicationController
   end
 
   def show
-    @picture = Picture.includes(:comments).find(params[:id])
+    @picture = Picture.preload(comments: :user).find(params[:id])
   end
 
 end

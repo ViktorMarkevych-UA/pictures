@@ -1,4 +1,5 @@
 class Comment < ActiveRecord::Base
+  self.per_page = 5
 
   belongs_to :picture
   belongs_to :user
@@ -9,7 +10,7 @@ class Comment < ActiveRecord::Base
   after_create :create_comment_event
 
   def create_comment_event
-    events.create(eventtable_body: body, user_id: user_id)
+    # events.create(eventtable_body: body, user_id: user_id)
   end
 
 end

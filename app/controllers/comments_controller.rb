@@ -5,16 +5,16 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = current_user.comments.new(params[:comment])
+    @comment = current_user.comments.build(comment_params)
     @comment.save!
-    redirect_to :back
+    redirect_to picture_path(@comment.picture)
   end
 
 
   private
 
   def comment_params
-    params.require(:comment).permit(:title, :body)
+    params.require(:comment).permit(:body, :picture_id)
   end
 
 end
