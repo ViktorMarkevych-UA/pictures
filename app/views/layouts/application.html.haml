@@ -2,40 +2,35 @@
 %html
   %head
     %title My Analitics
-    = stylesheet_link_tag "application"
-    = javascript_include_tag  "application"
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag  'application'
     = csrf_meta_tag
   %body
     #container
       #header
         %h1
-          %a{:href => "/"} My Analitics
+          = link_to 'Like Chat', root_path
         #user-navigation
           %ul.wat-cf
             #footer
               .block
                 %li
                   - if user_signed_in?
-                    Signed in as #{current_user.email}.
-                    Created at: #{current_user.created_at}
-                    %br
-                    Not you?
-                    |
-                    \#{ link_to "Sign out", destroy_user_session_path, :method => :delete }
+                    = "Signed in as #{current_user.email}"
                   - else
-                    = link_to "Sign up", new_user_registration_path
-                    or #{ link_to "Sign in", new_user_session_path }
+                    = link_to 'Sign up', new_user_registration_path
+                    or #{link_to 'Sign in', new_user_session_path}
         #main-navigation
           %ul.wat-cf
       #wrapper.wat-cf
         .my_menu
-          = link_to "Categories", categories_path
+          = link_to 'Categories', categories_path
           |
-          \#{ link_to "All Pictures", pictures_path, :method => :get }
+          = link_to 'All Pictures', pictures_path
           |
-          \#{link_to "All Comments", comments_path, :method => :get }
+          = link_to 'All Comments', comments_path
           |
-          \#{link_to "Users' actions", event_index_path}
+          = link_to 'User actions', events_path
 
         .flash
           - flash.each do |type, message|

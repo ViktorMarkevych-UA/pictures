@@ -1,4 +1,4 @@
-module EventHelper
+module EventsHelper
   def nice_params(obj)
     case obj.eventtable_type
     when "Like"

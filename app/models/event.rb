@@ -7,5 +7,4 @@ class Event < ActiveRecord::Base
   EVENT = %w{Navigation User Comment Like}
   validates :eventtable_type, :presence => true, :inclusion => {:in => EVENT}
 
-
 end
