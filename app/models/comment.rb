@@ -2,14 +2,14 @@ class Comment < ActiveRecord::Base
 
   belongs_to :picture
   belongs_to :user
-  has_many :events, :as => :eventtable
+  has_many :events, as: :eventtable
 
-  validates :body, :length => {:minimum => 1, :maximum => 100}
+  validates :body, length: { minimum: 1, maximum: 100 }
 
-  after_create :create_com
+  after_create :create_comment_event
 
-  def create_com
-    self.events.create(:eventtable_body => self.body, :user_id => self.user_id)
+  def create_comment_event
+    events.create(eventtable_body: body, user_id: user_id)
   end
 
 end

@@ -1,13 +1,21 @@
 class CommentsController < ApplicationController
 
   def index
-    @comments = Comment.paginate(:page => params[:page], :per_page => 5).order("created_at ASC").all
+    @comments = Comment.paginate(page: params[:page], per_page: 5).order('created_at ASC').all
   end
 
   def create
-    comment = current_user.comments.new(params[:comment])
-    comment.save!
+    @comment = current_user.comments.new(params[:comment])
+    @comment.save!
     redirect_to :back
   end
+
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:title, :body)
+  end
+
 end
 

@@ -2,9 +2,9 @@
 
 - @categories.each do |category|
   |
-  = link_to category.name, category_pictures_path(category.id), :class => "category"
+  = link_to category.name, category_pictures_path(category.id), class: 'category'
 
-.i_modal_window{:style => "display: none;"}
+.i_modal_window
   %div
     %p
-    = image_tag "#", :id => "rand_pict"
+    = image_tag 'rails.png', id: 'rand_pict'
