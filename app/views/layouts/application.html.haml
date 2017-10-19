@@ -35,7 +35,9 @@
                     = link_to 'Sign up', new_user_registration_path
                     = "or #{link_to 'Sign in', new_user_session_path}"
     .container-fluid
-      .row
+      .col-lg-1
+      .col-lg-10
         = yield
-    %footer.footer.navbar-fixed-bottom.text-center
-      %p Copyright &copy; 2013 Cool Chat
+      .col-lg-1
+  %footer.navbar-fixed-bottom.text-center
+    Copyright &copy; 2013 Cool Chat

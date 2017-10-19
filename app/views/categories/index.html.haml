@@ -1,10 +1,21 @@
-%h1 Listing categories
-
-- @categories.each do |category|
-  |
-  = link_to category.name, category_pictures_path(category.id), class: 'category'
-
-.i_modal_window
-  %div
-    %p
-    = image_tag 'rails.png', id: 'rand_pict'
+.row
+  .col-lg-8.col-lg-offset-2{ style: 'padding-bottom: 30px;' }
+    .panel-body
+      .input-group
+        = text_field_tag :name, nil, id: 'tags',
+                                               placeholder: 'Search for...', class: 'form-control',
+                                               data: { autocomplete_source: categories_path }
+        %span.input-group-btn
+          %button.btn.search
+            %i.glyphicon.glyphicon-search
+.row
+  .col-lg-10.col-lg-offset-1
+    %h1 The Top Liked Categories
+    .row
+      - @categories.each do |category|
+        .col-sm-6.col-md-4
+          .thumbnail
+            = link_to category_pictures_path(category.id), class: 'category' do
+              = image_tag category.pictures.first.pict.url(:medium)
+            .caption
+              %h3= category.name
