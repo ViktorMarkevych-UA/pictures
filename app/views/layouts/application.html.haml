@@ -12,11 +12,13 @@
   %body
     %nav.navbar.navbar-default
       .container-fluid
-        .row{ style: 'padding: 20px 0 20px 0;'}
+        .row
           .col-lg-2
-            = image_tag 'rails.png'
-          .col-lg-8
-          .col-lg-2
+            %ul.nav.navbar-nav
+              %li
+                = link_to 'Cool chat', root_path, class: 'navbar-brand'
+          .col-lg-7
+          .col-lg-3
             .navbar-header
               %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
                 %span.sr-only Toggle navigation
@@ -25,63 +27,15 @@
                 %span.icon-bar
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               %ul.nav.navbar-nav
-                %li
-                  - if user_signed_in?
-                    = "Signed in as #{current_user.email}"
-                    |
-                    = link_to 'Log out', destroy_user_session_path(current_user), method: :delete
-                  - else
+                - if user_signed_in?
+                  %li= link_to "Signed in as #{current_user.email}", user_path(current_user)
+                  %li= link_to 'Log out', destroy_user_session_path(current_user), method: :delete
+                - else
+                  %li
                     = link_to 'Sign up', new_user_registration_path
-                    or #{link_to 'Sign in', new_user_session_path}
+                    = "or #{link_to 'Sign in', new_user_session_path}"
     .container-fluid
-      = yield
-    %footer.footer.navbar-fixed-bottom
+      .row
+        = yield
+    %footer.footer.navbar-fixed-bottom.text-center
       %p Copyright &copy; 2013 Cool Chat
-
--#!!!
--#%html
--#  %head
--#    %title My Analitics
--#    = stylesheet_link_tag 'application'
--#    = javascript_include_tag  'application'
--#    = csrf_meta_tag
--#  %body
--#    #container
--#      #header
--#        %h1
--#          = link_to 'Cool Chat', root_path
--#        #user-navigation
--#          %ul.wat-cf
--#            #footer
--#              .block
--#                %li
--#                  - if user_signed_in?
--#                    = "Signed in as #{current_user.email}"
--#                    or
--#                  - else
--#                    = link_to 'Sign up', new_user_registration_path
--#                    or #{link_to 'Sign in', new_user_session_path}
--#        #main-navigation
--#          %ul.wat-cf
--#      #wrapper.wat-cf
--#        .my_menu
--#          = link_to 'Categories', categories_path
--#          |
--#          = link_to 'All Pictures', pictures_path
--#          |
--#          = link_to 'All Comments', comments_path
--#          |
--#          = link_to 'User actions', events_path
--#
--#        .flash
--#          - flash.each do |type, message|
--#            %div{ class: "message #{type}" }
--#              %p= message
--#              %p.notice= notice
--#              %p.alert= alert
--#        #main
--#          = yield
--#          #footer
--#            .block
--#              %p
--#                Copyright &copy; 2013 Cool Chat

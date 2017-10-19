@@ -1,0 +1,26 @@
+
+.col-lg-6
+  %h4
+    = @user.full_name
+  - if @user.errors.any?
+    %h3 Erros:
+    %ul
+      - @user.errors.full_messages.each do |message|
+        %li
+          = message
+  =form_for @user, html: { multipart: true, class: 'form-horizontal' } do |f|
+    .form-group
+      .col-sm-2.control-label
+        = f.label :first_name
+      .col-sm-8
+        = f.text_field :first_name, class: 'form-control'
+    .form-group
+      .col-sm-2.control-label
+        = f.label :last_name
+      .col-sm-8
+        = f.text_field :last_name, class: 'form-control'
+    %hr
+    .form-group
+      .col-sm-12
+        = f.button 'Update', class: 'btn btn-success'
+        = link_to 'Back', user_path, class: 'btn btn-default'

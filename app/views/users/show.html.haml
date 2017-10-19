@@ -1,0 +1,13 @@
+.col-lg-6
+  %h5
+    = @user.full_name
+  %hr
+  %dl.dl-horizontal
+    %dt First name:
+    %dd= @user.first_name
+    %dt Last_name:
+    %dd= @user.last_name
+  .pull-right{ style: 'padding-top: 10px;' }
+    = link_to 'Edit', edit_user_path(@user), class: 'btn btn-primary'
+    = link_to 'On home page', root_path, class: 'btn btn-default'
+  %hr

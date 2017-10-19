@@ -5,9 +5,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
-  # attr_accessible :email, :password, :password_confirmation, :remember_me
-
   has_many :likes
   # has_many :pictures, :through => :likes, :uniq => true
   has_many :pictures
@@ -18,6 +15,10 @@ class User < ActiveRecord::Base
   validates :email, :presence => true, :uniqueness => true
 
   after_create :create_use
+
+  def full_name
+    [first_name, last_name].join(' ')
+  end
 
   def create_use
     self.events.create(:eventtable_body => "created_at", :user_id => self.id)

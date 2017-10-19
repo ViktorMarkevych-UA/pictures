@@ -17,5 +17,7 @@ Rails.application.routes.draw do
     get 'show/:event_type', on: :member, action: :show, as: :show
   end
 
+  resources :users, only: [:show, :edit, :update]
+
   root to: 'categories#index'
 end
