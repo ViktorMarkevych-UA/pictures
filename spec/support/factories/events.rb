@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :events do
     sequence(:eventtable_type)  { "User" }
     sequence(:eventtable_id) { |n| n }

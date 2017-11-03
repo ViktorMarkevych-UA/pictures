@@ -10,11 +10,9 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 
 require 'rspec/rails'
 require 'capybara/rails'
-require 'factory_girl'
+require 'factory_bot'
 require 'database_cleaner'
 require 'shoulda/matchers'
-
-include CapybaraHelpers
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -47,7 +45,7 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Warden::Test::Helpers
 
