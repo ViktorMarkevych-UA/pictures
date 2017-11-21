@@ -1,4 +1,4 @@
-class AddNameToPicture < ActiveRecord::Migration
+class AddNameToPicture < ActiveRecord::Migration[5.1]
   def change
     add_column :pictures, :name, :string
   end

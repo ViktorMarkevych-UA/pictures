@@ -1,4 +1,4 @@
-class RenameCatIdToCategoryId < ActiveRecord::Migration
+class RenameCatIdToCategoryId < ActiveRecord::Migration[5.1]
   def up
     rename_column(:pictures, :cat_id, :category_id)
   end
