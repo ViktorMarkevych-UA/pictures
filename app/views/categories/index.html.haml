@@ -9,13 +9,11 @@
           %button.btn.search
             %i.glyphicon.glyphicon-search
 .row
-  .col-lg-10.col-lg-offset-1
-    %h1 The Top Liked Categories
-    .row
-      - @categories.each do |category|
-        .col-sm-6.col-md-4
-          .thumbnail
-            = link_to category_pictures_path(category.id), class: 'category' do
-              = image_tag category.pictures.first.pict.url(:medium)
-            .caption
-              %h3= category.name
+  %h1 The Top Liked Categories
+  .row
+    - @categories.each do |category|
+      .col-xs-6.col-md-3
+        = link_to category_pictures_path(category.id), class: 'category thumbnail' do
+          = image_tag category.pictures.first.pict.url(:medium)
+        .caption
+          %h3= category.name

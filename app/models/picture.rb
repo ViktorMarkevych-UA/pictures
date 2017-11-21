@@ -6,6 +6,11 @@ class Picture < ActiveRecord::Base
   
   validates :category_id, presence: true
 
-  has_attached_file :pict, styles: { large: '640x480', medium: '242x200#', thumb: '171x180>' }
-  validates_attachment_content_type :pict, content_type: /\Aimage\/.*\Z/
+  has_attached_file :picture, styles: { large: '640x640',
+                                                     medium: '300x300#',
+                                                     thumb: '200x200#' },
+                    url: '/:class/:attachment/:style/:filename',
+                    path: ':rails_root/public:url'
+  validates_attachment :pict, presence: true, content_type: /\Aimage\/.*\Z/
+
 end
