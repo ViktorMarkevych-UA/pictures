@@ -16,6 +16,7 @@
 public/system/pictures/picts/
 public/system/*
 .idea/*
+.env
 
 config/database.yml
 #

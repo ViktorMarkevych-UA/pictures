@@ -1,7 +1,7 @@
 class AddPictToPicture < ActiveRecord::Migration[5.1]
   def self.up
     change_table :pictures do |t|
-      t.has_attached_file :pict
+      t.attachment :pict
     end
   end
 
