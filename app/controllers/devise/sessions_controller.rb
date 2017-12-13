@@ -1,4 +1,4 @@
-class SessionsController < Devise::SessionsController
+class Devise::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
   def new
