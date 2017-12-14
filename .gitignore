@@ -15,6 +15,7 @@
 /tmp
 public/system/pictures/picts/
 public/system/*
+public/pictures/*
 .idea/*
 .env
 

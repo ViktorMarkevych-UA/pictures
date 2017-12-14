@@ -14,6 +14,6 @@
     - @categories.each do |category|
       .col-xs-6.col-md-3
         = link_to category_pictures_path(category.id), class: 'category thumbnail' do
-          = image_tag category.pictures.first.pict.url(:medium)
+          = image_tag category.pictures.first.image.url(:medium)
         .caption
           %h3= category.name
