@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 // require_tree .
+
+$(document).ready(function() {
+  $('.btn-dialog').click(function() {
+    $('#dialog').modal('show');
+    return $('#dialog').removeClass('show_modal');
+  });
+});

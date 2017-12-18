@@ -3,6 +3,7 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update]
 
   def index
+    @category = current_user.categories.build
     @categories = Category.all.preload(:pictures)
   end
 
