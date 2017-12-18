@@ -3,9 +3,9 @@
   %head
     %title Cool Chat
     = csrf_meta_tags
-    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
-    %meta{:charset => "utf-8"}/
-    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %meta{content: 'width=device-width,initial-scale=1', name: 'viewport'}/
+    %meta{charset: 'utf-8'}/
+    %meta{content: 'IE=edge,chrome=1', 'http-equiv': 'X-UA-Compatible'}/
 
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
@@ -20,7 +20,7 @@
           .col-lg-7
           .col-lg-3
             .navbar-header
-              %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+              %button.navbar-toggle.collapsed{ 'aria-expanded': 'false', 'data-target': '#bs-example-navbar-collapse-1', 'data-toggle': 'collapse', type: 'button' }
                 %span.sr-only Toggle navigation
                 %span.icon-bar
                 %span.icon-bar
@@ -28,7 +28,7 @@
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               %ul.nav.navbar-nav
                 - if user_signed_in?
-                  %li= link_to "Signed in as #{current_user.email}", user_path(current_user)
+                  %li= link_to current_user.full_name, user_path(current_user)
                   %li= link_to 'Log out', destroy_user_session_path(current_user), method: :delete
                 - else
                   %li

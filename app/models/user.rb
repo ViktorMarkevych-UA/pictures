@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   after_create :create_user_event
 
   def full_name
-    "#{first_name last_name}"
+    [first_name, last_name].join(' ')
   end
 
   def create_user_event
