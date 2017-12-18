@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :likes
+  has_many :categories
+
   # has_many :pictures, :through => :likes, :uniq => true
   has_many :pictures
   has_many :comments, dependent: :destroy

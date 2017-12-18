@@ -12,8 +12,9 @@
   %h1 The Top Liked Categories
   .row
     - @categories.each do |category|
-      .col-xs-6.col-md-3
-        = link_to category_pictures_path(category.id), class: 'category thumbnail' do
-          = image_tag category.pictures.first.image.url(:medium)
-        .caption
-          %h3= category.name
+      - if category.pictures.present?
+        .col-xs-6.col-md-3
+          = link_to category_pictures_path(category.id), class: 'category thumbnail' do
+            = image_tag category.pictures.first.image.url(:medium)
+          .caption
+            %h3= category.name
