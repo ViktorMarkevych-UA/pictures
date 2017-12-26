@@ -1,10 +1,37 @@
-%br
-- @pictures.each do |img|
-  = link_to picture_path(:id => img.id) do
-    %div{:style => "float:left; width:150px;height: 170px"}
-      = "Comments: #{img.comments.count.to_i}"
-      |
-      \#{"Like: #{img.likes_count.to_i}"}
-      %p
-        = image_tag img.image(:thumb)
-.clear
+#freewall.free-wall
+
+:javascript
+  var temp = "<div class='cell' " +
+  "data-image-id='{imageId}' " +
+  "style='cursor: pointer !important; width:{width}px; height: {height}px; background-image: url({image}.jpg)'></div>";
+  var w = 1, html = '';
+  var pictures = #{@pictures.to_json.html_safe };
+
+  $.each(pictures, function (index, image) {
+    w = 400 + 100 * Math.random() << 0;
+    html += temp.replace(/\{height\}/g, 300).replace(/\{width\}/g, w).replace("{image}", image[0]).replace("{imageId}", image[1]);
+  });
+  $("#freewall").html(html);
+  var wall = new Freewall("#freewall");
+  wall.reset({
+    selector: '.cell',
+    animate: true,
+    cellW: 20,
+    cellH: 200,
+
+    onResize: function() {
+      wall.fitWidth();
+    }
+  });
+  wall.fitWidth();
+  $(window).trigger("resize");
+
+-#- @pictures.each do |img|
+-#  = link_to picture_path(:id => img.id) do
+-#    %div{:style => "float:left; width:150px;height: 170px"}
+-#      = "Comments: #{img.comments.count.to_i}"
+-#      |
+-#      \#{"Like: #{img.likes_count.to_i}"}
+-#      %p
+-#        = image_tag img.image(:thumb)
+-#.clear

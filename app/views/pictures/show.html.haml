@@ -1,6 +1,6 @@
 %p
 
-  %div{:style => "float:left;margin-right: 30px"}
+  %div{ style: "float:left;margin-right: 30px"}
     %p= "Like: #{@picture.likes_count.to_i}"
     %p= "Comments: #{@picture.comments.count.to_i}"
     %p= image_tag @picture.image(:thumb)

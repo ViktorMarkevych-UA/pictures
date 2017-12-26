@@ -1,13 +1,22 @@
 namespace :data do
-task picture: :environment do
-   categories = Dir[Rails.root.to_s + '/db/images/*'].map{ |f| File.basename(f) }
-   categories.each do |category|
-     names = Dir[Rails.root.to_s + "/db/images/#{category}/*.jpeg"].map{ |f| File.basename(f) }
-     category_id = Category.find_or_create_by(name: category).id
-     names.each do |name|
-       # puts name
-       Picture.create(name: name, image: File.open(Rails.root.to_s + "/db/images/#{category}/#{name}"), category_id: category_id)
+  task picture: :environment do
+     categories = Dir[Rails.root.to_s + '/db/images/*'].map{ |f| File.basename(f) }
+     user = User.first_or_initialize(email: 'test@test.ts', first_name: 'Test', last_name: 'Test')
+     unless user.persisted?
+       user.skip_confirmation!
+       user.save
      end
-   end
-end
+
+     categories.each do |category|
+       names = Dir[Rails.root.to_s + "/db/images/#{category}/*.jpeg"].map{ |f| File.basename(f) }
+       category = Category.find_or_create_by(name: category, user: user)
+       puts category.name
+       names.each do |name|
+         puts name
+         p = Picture.new(name: name, image: File.open(Rails.root.to_s + "/db/images/#{category.name}/#{name}"), category: category)
+         p.save!
+       end
+       puts '*'*100
+     end
+  end
 end

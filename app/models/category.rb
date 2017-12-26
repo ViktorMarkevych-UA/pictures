@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
 
-  has_many :pictures
+  has_many :pictures, dependent: :destroy
   belongs_to :user
 end

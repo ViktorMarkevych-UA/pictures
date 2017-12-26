@@ -5,9 +5,3 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-Dir["#{Rails.root}/db/images/*/*"].each do |pic|
-  cat = Category.find_or_create_by(name: pic.split('/')[-2])
-  Picture.create(:category_id => cat.id, :pict => File.open(pic))
-  puts "Create #{pic}"
-end

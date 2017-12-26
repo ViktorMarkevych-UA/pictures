@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require freewall
 // require_tree .
 
 $(document).ready(function() {
@@ -20,4 +21,18 @@ $(document).ready(function() {
     $('#dialog').modal('show');
     return $('#dialog').removeClass('show_modal');
   });
+
+  $('body').on('click', '.cell', function(){
+    console.log($(this).data('image-id'));
+  });
+  // return $.ajax(window.location.pathname, {
+  //   type: 'GET',
+  //   dataType: 'json',
+  //   success: function(data, textStatus, jqXHR) {
+  //     return $("#candidate_source").autocomplete({
+  //       source: data.sources
+  //     });
+  //   }
+  // });
+
 });
