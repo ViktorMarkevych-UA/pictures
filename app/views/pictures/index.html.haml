@@ -1,7 +1,7 @@
 #freewall.free-wall
 
 :javascript
-  var pictures = #{@pictures.to_json.html_safe };
+  var pictures = #{set_pictures_data };
 
   var temp = "<a href='/pictures/{id}'><div class='brick' style='width:{width}px;'><img src='{image}.jpg' width='100%'></div></a>";
   var w = 1, html = '';
