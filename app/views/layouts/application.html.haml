@@ -35,6 +35,8 @@
                   = link_to '#', class: 'btn-dialog' do
                     %i.glyphicon.glyphicon-folder-close
                     New Category
+            %li
+              = link_to 'All Pictures', pictures_path
           %ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
               %li= link_to current_user.full_name, user_path(current_user)

@@ -16,7 +16,7 @@ class Picture < ActiveRecord::Base
 
   def self.set_collections(options)
     if options[:category_id]
-      where(category_id: options[:options]).order('likes_count ASC')
+      where(category_id: options[:category_id]).order('likes_count ASC')
     else
       order('likes_count ASC')
     end
