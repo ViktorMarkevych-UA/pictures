@@ -1,29 +1,22 @@
 $(document).ready(function() {
-  setLike();
-  setUnLike();
+  manageLike();
 });
 
 
-function setLike() {
-// return $.ajax(window.location.pathname, {
-//   type: 'GET',
-//   dataType: 'json',
-//   success: function(data, textStatus, jqXHR) {
-//     return $("#candidate_source").autocomplete({
-//       source: data.sources
-//     });
-//   }
-// });
-}
-
-function setUnLike() {
-// return $.ajax(window.location.pathname, {
-//   type: 'GET',
-//   dataType: 'json',
-//   success: function(data, textStatus, jqXHR) {
-//     return $("#candidate_source").autocomplete({
-//       source: data.sources
-//     });
-//   }
-// });
+function manageLike() {
+  $('body').on('click', '.like-icons .glyphicon', function(){
+    var pictureId = $(this).parent().data('pictureId');
+    var icon = $(this);
+    $.ajax('/pictures/' + pictureId + '/likes', {
+      type: 'post',
+      dataType: 'json',
+      success: function(status) {
+        if (status) {
+          icon.removeClass('glyphicon-heart-empty').addClass('glyphicon-heart');
+        } else {
+          icon.removeClass('glyphicon-heart').addClass('glyphicon-heart-empty');
+        }
+      }
+    });
+  });
 }

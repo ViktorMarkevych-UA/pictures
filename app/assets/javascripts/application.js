@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require freewall
+//= require pictures
 // require_tree .
 
 $(document).ready(function() {
