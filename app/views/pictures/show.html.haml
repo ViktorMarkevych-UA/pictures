@@ -1,24 +1,11 @@
-%p
-
-  %div{ style: "float:left;margin-right: 30px"}
-    %p= "Like: #{@picture.likes_count.to_i}"
-    %p= "Comments: #{@picture.comments.count.to_i}"
-    %p= image_tag @picture.image(:thumb)
-%p
-  = link_to image_tag(@picture.image.url)#, :onclick => "sendTracking(this, '#{current_user.id}');"
-  %br
-    = link_to "Like", picture_likes_path(@picture.id), :method => :post, :class => "button", :style => "float: none; display:inline"
-    = @picture.likes_count
-  %p
-  - @picture.comments.each do |comment|
-    %p
-      = "#{comment.user.email} said:"
-      = comment.body
-
-  = form_for :comment, :url => comments_path do |f|
-    = f.text_area :body
-    = f.hidden_field :picture_id, value: @picture.id
-    %br
-    = f.submit :value => "save"
-  %p
-    = link_to 'Back', :back
+.row
+  .col-lg-12
+    = image_tag @picture.image(:large), class: 'center-block'
+%hr
+.row
+  .col-lg-12
+    .row
+      - @pictures.each do |p|
+        .col-sm-5.col-md-3
+          = link_to p do
+            = image_tag p.image.url(:medium), class: 'center-block', style: 'padding: 10px;'
