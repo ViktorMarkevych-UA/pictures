@@ -3,7 +3,7 @@
 :javascript
   var pictures = #{set_pictures_data };
 
-  var temp = "<a href='/pictures/{id}'><div class='brick' style='width:{width}px;'><img src='{image}.jpg' width='100%'></div></a>";
+  var temp = "<a href='/pictures/{id}'><div class='brick' style='width:{width}px;'><img src='{image}' width='100%'></div></a>";
   var w = 1, html = '';
   $.each(pictures, function (index, image) {
       w = 1 + 3 * Math.random() << 0;
@@ -14,7 +14,7 @@
   var wall = new Freewall("#freewall");
   wall.reset({
       selector: '.brick',
-      keepOrder: true,
+      // keepOrder: true,
       animate: true,
       cellW: 150,
       cellH: 'auto',

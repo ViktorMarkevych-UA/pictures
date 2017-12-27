@@ -4,7 +4,8 @@ class Picture < ActiveRecord::Base
   has_many :likes
   has_many :users, through: :likes
 
-  has_attached_file :image, styles: { large: '640x640>',
+  has_attached_file :image, styles: { view: '1024x768>',
+                                           large: '640x640>',
                                            medium: '300x300#',
                                            thumb: '200x200#' },
                     url: '/:class/:attachment/:style/:filename',
