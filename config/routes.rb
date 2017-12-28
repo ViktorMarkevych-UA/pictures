@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   end
 
   resources :pictures, only: [:index, :show] do
-    resources :likes, only: [:create]
+    resources :negative_likes, only: [:create]
+    resources :positive_likes, only: [:create]
   end
   resources :comments, only: [:index, :create]
 

@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :likes
+  has_many :positive_likes
+  has_many :negative_likes
   has_many :categories
 
   # has_many :pictures, :through => :likes, :uniq => true

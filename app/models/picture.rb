@@ -1,8 +1,10 @@
 class Picture < ActiveRecord::Base
   belongs_to :category
   has_many :comments
-  has_many :likes
-  has_many :users, through: :likes
+  has_many :positive_likes
+  has_many :negative_likes
+  has_many :positive_users, through: :positive_likes, class_name: 'User'
+  has_many :negative_users, through: :negative_likes, class_name: 'User'
 
   has_attached_file :image, styles: { view: '1024x768>',
                                            large: '640x640>',
@@ -17,9 +19,9 @@ class Picture < ActiveRecord::Base
 
   def self.set_collections(options)
     if options[:category_id]
-      where(category_id: options[:category_id]).order('likes_count ASC')
+      where(category_id: options[:category_id]).order('positive_likes_count ASC')
     else
-      order('likes_count ASC')
+      order('positive_likes_count ASC')
     end
   end
 end
