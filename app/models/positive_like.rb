@@ -3,7 +3,7 @@ class PositiveLike < Like
 
   def self.manage_like_for(picture, current_user)
     like = PositiveLike.where(picture_id: picture.id, user_id: current_user.id).first
-    like.present? ? like.delete : PositiveLike.create(picture_id: picture.id, user_id: current_user.id)
+    PositiveLike.create(picture_id: picture.id, user_id: current_user.id) unless like.present?
     Picture.find(picture.id).positive_likes_count
   end
 end
