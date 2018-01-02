@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe NegativeLikesController do
+describe PositiveLikesController do
   render_views
 
   let(:json) { JSON.parse(response.body) }
@@ -13,11 +13,11 @@ describe NegativeLikesController do
   let(:picture) { create :picture, category_id: category.id }
   let(:picture_1like) { create :picture, category_id: category.id }
 
-  let(:like_neg) { create :negative_like, picture_id: picture_1like.id, user_id: current_user.id }
+  let(:like_pos) { create :positive_like, picture_id: picture_1like.id, user_id: current_user.id }
 
   let(:picture_2like) { create :picture, category_id: category.id }
-  let(:like_pos1) { create :positive_like, picture_id: picture_2like.id, user_id: user_1.id }
-  let(:like_pos2) { create :positive_like, picture_id: picture_2like.id, user_id: current_user.id }
+  let(:like_neg1) { create :negative_like, picture_id: picture_2like.id, user_id: user_1.id }
+  let(:like_neg2) { create :negative_like, picture_id: picture_2like.id, user_id: current_user.id }
 
   describe 'Create unlikes POST' do
     before :each do
@@ -27,22 +27,22 @@ describe NegativeLikesController do
     context 'when picture is not have any like' do
       it 'should return 1 negative_likes_count' do
         post :create, params: { picture_id: picture.id }, format: :json
-        expect(json).to eq({ 'negative' => 1, 'positive' => 0 })
+        expect(json).to eq({ 'negative' => 0, 'positive' => 1 })
       end
     end
 
     context 'when picture have a like' do
       it 'should return 1 negative_likes_count' do
         post :create, params: { picture_id: picture_1like.id }, format: :json
-        expect(json).to eq({ 'negative' => 1, 'positive' => 0 })
+        expect(json).to eq({ 'negative' => 0, 'positive' => 1 })
       end
 
       it 'should return 1 negative_likes_count and 1 positive likes' do
-        like_pos1.reload
-        like_pos2.reload
+        like_neg1.reload
+        like_neg2.reload
         picture_2like.reload
 
-        expect(picture_2like.positive_likes_count).to eq 2
+        expect(picture_2like.negative_likes_count).to eq 2
         post :create, params: { picture_id: picture_2like.id }, format: :json
         picture_2like.reload
         expect(json).to eq({ 'negative' => 1, 'positive' => 1 })
