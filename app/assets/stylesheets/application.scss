@@ -14,6 +14,12 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'slick';
+@import 'slick-theme';
+
+.slick-prev::before, .slick-next::before {
+  color: #000;
+}
 
 #modalOverlay {
     background-color:#000; /* Тут выбираем цвет затемнения */

@@ -9,7 +9,7 @@
         %span
           = @picture.negative_likes_count
 %hr
-.row
+.row.variable-width
   - @pictures.each do |p|
     .col-sm-5.col-md-2
       = link_to p do
