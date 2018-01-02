@@ -27,14 +27,14 @@ describe NegativeLikesController do
     context 'when picture is not have any like' do
       it 'should return 1 negative_likes_count' do
         post :create, params: { picture_id: picture.id }, format: :json
-        expect(json).to eq(1)
+        expect(json).to eq({ 'negative' => 1, 'positive' => 0  })
       end
     end
 
     context 'when picture have a like' do
       it 'should return 1 negative_likes_count' do
         post :create, params: { picture_id: picture_1like.id }, format: :json
-        expect(json).to eq(1)
+        expect(json).to eq({ 'negative' => 1, 'positive' => 0 })
       end
 
       it 'should return 1 negative_likes_count and 1 positive likes' do
@@ -45,7 +45,7 @@ describe NegativeLikesController do
         expect(picture_2like.positive_likes_count).to eq 2
         post :create, params: { picture_id: picture_2like.id }, format: :json
         picture_2like.reload
-        expect(json).to eq(1)
+        expect(json).to eq({ 'negative' => 1, 'positive' => 1 })
         expect(Picture.find(picture_2like.id).positive_likes_count).to eq 1
       end
     end
