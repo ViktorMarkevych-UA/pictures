@@ -13,8 +13,8 @@ module LikeSupport
       else
         Object.const_get(type_2.capitalize + 'Like').create(attrs)
       end
-      { negative: Picture.find(picture.id).negative_likes_count,
-        positive: Picture.find(picture.id).positive_likes_count }
+      { negative_likes: Picture.find(picture.id).negative_likes_count,
+        positive_likes: Picture.find(picture.id).positive_likes_count }
     end
   end
 

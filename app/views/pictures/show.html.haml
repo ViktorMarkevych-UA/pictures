@@ -2,13 +2,12 @@
   .col-lg-12
     = image_tag @picture.image(:view), class: 'center-block'
     %span{ class: 'like-icons', data: { 'picture-id': @picture.id } }
-      %i.glyphicon.glyphicon-heart
+      %i.glyphicon.glyphicon-heart{ data: { 'url': 'positive_likes' } }
         %span
           = @picture.positive_likes_count
-      %i.glyphicon.glyphicon-heart-empty
+      %i.glyphicon.glyphicon-heart-empty{ data: { 'url': 'negative_likes' } }
         %span
           = @picture.negative_likes_count
-      -#= set_likes_icons(@picture)
 %hr
 .row
   - @pictures.each do |p|
@@ -16,10 +15,9 @@
       = link_to p do
         = image_tag p.image.url(:thumb), class: 'center-block', style: 'padding: 10px;'
       %span.like-icons{ data: { 'picture-id': p.id } }
-        %i.glyphicon.glyphicon-heart
+        %i.glyphicon.glyphicon-heart{ data: { 'url': 'positive_likes' } }
           %span
             = p.positive_likes_count
-        %i.glyphicon.glyphicon-heart-empty
+        %i.glyphicon.glyphicon-heart-empty{ data: { 'url': 'negative_likes' } }
           %span
             = p.negative_likes_count
-        -#= set_likes_icons(p)
