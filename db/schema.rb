@@ -53,13 +53,13 @@ ActiveRecord::Schema.define(version: 20171228103842) do
   create_table "pictures", force: :cascade do |t|
     t.integer "category_id"
     t.string "name"
+    t.integer "positive_likes_count", default: 0
     t.string "image_file_name"
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "positive_likes_count", default: 0
     t.integer "negative_likes_count", default: 0
   end
 
