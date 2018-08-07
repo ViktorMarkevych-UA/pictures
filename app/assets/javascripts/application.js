@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require turbolinks
 //= require freewall
 //= require pictures
 //= require jquery.slick
