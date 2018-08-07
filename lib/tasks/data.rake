@@ -1,5 +1,6 @@
 namespace :data do
   task picture: :environment do
+    Picture.destroy_all
      categories = Dir[Rails.root.to_s + '/db/images/*'].map{ |f| File.basename(f) }
      user = User.first_or_initialize(email: 'test@test.ts', first_name: 'Test', last_name: 'Test')
      unless user.persisted?
