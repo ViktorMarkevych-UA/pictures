@@ -14,57 +14,5 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import 'slick';
-@import 'slick-theme';
-
-.slick-prev::before, .slick-next::before {
-  color: #000;
-}
-
-#modalOverlay {
-    background-color:#000; /* Тут выбираем цвет затемнения */
-    cursor:wait; /* Курсор при наведении на затемненную область */
-    filter: alpha(opacity=80); /* Интенсивность затемнения */
-    height: 100%;
-}
-
-#modalContainer {
-    height:auto;  /* Для растягивания по высоте */
-    width:300px;
-    left:50%; /*в купе с margin-left, которая равна минус половине ширины центруют по горизонтали*/
-    top:50%;  /*центрует по вертикали, вместе с margin-top, если задать высоту*/
-    margin-left:-150px;
-    /* margin-top: -70px; */
-    background-color:#fff;
-    border:3px solid #ccc;
-    padding: 10px;
-}
-a.modalCloseImg {
-    background:url(x.png) no-repeat;
-    width:25px; /* Положение отличается от тех, что в примере. Мне кажется так удобнее */
-    height:29px;
-    display:inline;
-    z-index:3200;
-    position:absolute;
-    top:0px;
-    right:0px;
-    cursor:pointer;
-}
-
-footer {
-  background-color: #777;
-  padding: 10px;
-}
-
-.free-wall {
-  margin: 15px;
-}
-
-.brick img {
-  margin: 0;
-  display: block;
-}
-
-.like-icons i.glyphicon {
-  cursor:pointer;
-}
+@import 'main';
+@import 'pictures/pictures';

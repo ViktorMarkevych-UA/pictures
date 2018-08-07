@@ -1,5 +1,5 @@
 .row
-  .col-lg-12
+  .col-sm-8
     = image_tag @picture.image(:view), class: 'center-block'
     %span{ class: 'like-icons', data: { 'picture-id': @picture.id } }
       %i.glyphicon.glyphicon-heart{ data: { 'url': 'positive_likes' } }
@@ -9,15 +9,22 @@
         %span
           = @picture.negative_likes_count
 %hr
-.row.variable-width
-  - @pictures.each do |p|
-    .col-sm-5.col-md-2
-      = link_to p do
-        = image_tag p.image.url(:thumb), class: 'center-block', style: 'padding: 10px;'
-      %span.like-icons{ data: { 'picture-id': p.id } }
-        %i.glyphicon.glyphicon-heart{ data: { 'url': 'positive_likes' } }
-          %span
-            = p.positive_likes_count
-        %i.glyphicon.glyphicon-heart-empty{ data: { 'url': 'negative_likes' } }
-          %span
-            = p.negative_likes_count
+.row
+  .col-lg-8.col-sm-offset-2
+    .jcarousel-wrapper
+      .jcarousel
+        %ul
+          - @pictures.each do |p|
+            %li
+              = link_to p do
+                = image_tag p.image.url(:thumb)
+              %span.like-icons{ data: { 'picture-id': p.id } }
+                %i.glyphicon.glyphicon-heart{ data: { 'url': 'positive_likes' } }
+                  %span
+                    = p.positive_likes_count
+                %i.glyphicon.glyphicon-heart-empty{ data: { 'url': 'negative_likes' } }
+                  %span
+                    = p.negative_likes_count
+      %a.jcarousel-control-prev{:href => "#"} ‹
+      %a.jcarousel-control-next{:href => "#"} ›
+      %p.jcarousel-pagination

@@ -22,7 +22,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'dotenv'
-gem 'jquery-slick-rails'
 
 group :development, :test do
   gem 'rspec-rails'

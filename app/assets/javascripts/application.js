@@ -16,7 +16,6 @@
 //= require turbolinks
 //= require freewall
 //= require pictures
-//= require jquery.slick
 // require_tree .
 
 $(document).ready(function() {
