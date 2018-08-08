@@ -3,16 +3,8 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
-  before_action :event_links
 
   layout :select_layout
-
-  def event_links
-    if user_signed_in?
-      current_user.events.create(eventtable_type: 'Navigation',
-                                 eventtable_body: request.env['REQUEST_URI'] )
-    end
-  end
 
   protected
 

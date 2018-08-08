@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171228103842) do
+ActiveRecord::Schema.define(version: 20180808113746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,15 +31,6 @@ ActiveRecord::Schema.define(version: 20171228103842) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["picture_id"], name: "index_comments_on_picture_id"
-  end
-
-  create_table "events", force: :cascade do |t|
-    t.string "eventtable_type"
-    t.integer "eventtable_id"
-    t.integer "user_id"
-    t.text "eventtable_body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "likes", force: :cascade do |t|

@@ -5,7 +5,7 @@
         = image_tag @picture.image(:large)
   .col-sm-4.info-picture
     .panel
-      .panel-body
+      .panel-heading
         %span{ class: 'like-icons', data: { 'picture-id': @picture.id } }
           %i.glyphicon.glyphicon-heart{ data: { 'url': 'positive_likes' } }
             %span
@@ -13,6 +13,9 @@
           %i.glyphicon.glyphicon-heart-empty{ data: { 'url': 'negative_likes' } }
             %span
               = @picture.negative_likes_count
+      %hr
+      .panel-body
+        %p Comments list
 .row
   .col-lg-8.col-sm-offset-2
     .jcarousel-wrapper
