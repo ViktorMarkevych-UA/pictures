@@ -1,14 +1,14 @@
 
 .col-lg-6
   %h4
-    = @user.full_name
-  - if @user.errors.any?
+    = current_user.full_name
+  - if current_user.errors.any?
     %h3 Erros:
     %ul
-      - @user.errors.full_messages.each do |message|
+      - current_user.errors.full_messages.each do |message|
         %li
           = message
-  =form_for @user, html: { multipart: true, class: 'form-horizontal' } do |f|
+  =form_for current_user, html: { multipart: true, class: 'form-horizontal' } do |f|
     .form-group
       .col-sm-2.control-label
         = f.label :first_name

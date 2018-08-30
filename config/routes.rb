@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_for :users
 
   resources :categories, exept: %i[destroy] do
     resources :pictures, only: [:index]
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
   resources :comments, only: [:index, :create]
 
-  resources :users, only: [:show, :edit, :update]
+  resource :users, only: [:show, :edit, :update]
 
   root to: 'categories#index'
 end
