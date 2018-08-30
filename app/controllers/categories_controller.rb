@@ -24,8 +24,7 @@ class CategoriesController < ApplicationController
         format.html { redirect_to category_path(@category), notice: 'Is Created!' }
         format.json
       else
-        format.html { render action: 'new' }
-        format.json { render json: @category.errors.full_messages, status: :unprocessable_entity }
+        format.js
       end
     end
   end
