@@ -20,7 +20,8 @@
                 %i.glyphicon.glyphicon-th-list
                 Categories List
             %li
-              %a.dropdown-toggle.btn-dialog{ data: { toggle: :modal, target: '#dialog' } }
+              = link_to new_category_path, class: '.dropdown-toggle.btn-dialog',
+                data: { toggle: :modal, target: '#dialog', remote: true } do
                 %i.glyphicon.glyphicon-folder-close
                 New Category
         %li
