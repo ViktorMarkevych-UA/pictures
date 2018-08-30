@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :categories, exept: %i[destroy] do
+  resources :categories, except: %i[:destroy] do
     resources :pictures, only: [:index]
   end
 
