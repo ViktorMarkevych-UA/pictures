@@ -7,14 +7,14 @@ rails '5.1.4'
 
 add database.yml from database.yml.example and settup it.
 run:
- **rake db:create**
- **rake db:migrate**
+ rake db:create
+ rake db:migrate
 
 To add pictures you need to run **rake db:seed**
 
 To login
-  login: **test@test.ts**
-  pwd:   **123456**
+  login: test@test.ts
+  pwd:   123456
 
 To regidstarte you need to go to http://localhost:3000/users/sign_up
 Cofirm account and login
