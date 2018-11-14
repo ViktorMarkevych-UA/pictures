@@ -11,9 +11,10 @@ run:
  *rake db:migrate*
 
 To add pictures you need to run *rake db:seed*
+
 To login
   login: test@test.ts
   pwd:   123456
 
 To regidstarte you need to go to http://localhost:3000/users/sign_up
-Cofirm account and login    
+Cofirm account and login
