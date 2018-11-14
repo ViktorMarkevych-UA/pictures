@@ -14,9 +14,4 @@ Rails.application.routes.draw do
   resource :users, only: %i[show edit update]
 
   root to: 'categories#index'
-
-  namespace :searches do
-    resources :categories, only: %i[index]
-  end
-
 end

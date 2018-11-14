@@ -18,6 +18,4 @@
 //= require freewall
 //= require pictures
 //= require categories/categories
-//= require jquery-ui/widgets/autocomplete
-//= require autocomplete-rails
 // require_tree .
