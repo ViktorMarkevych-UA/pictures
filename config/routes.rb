@@ -1,20 +1,22 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
   devise_for :users
 
-  resources :categories, except: %i[:destroy] do
-    resources :pictures, only: [:index]
+  resources :categories, except: %i[destroy] do
+    resources :pictures, only: %i[index]
   end
 
-  resources :pictures, only: [:index, :show] do
-    resources :negative_likes, only: [:create]
-    resources :positive_likes, only: [:create]
+  resources :pictures, only: %i[index show] do
+    resources :negative_likes, only: %i[create]
+    resources :positive_likes, only: %i[create]
   end
-  resources :comments, only: [:index, :create]
+  resources :comments, only: %i[index create]
 
-  resource :users, only: [:show, :edit, :update]
+  resource :users, only: %i[show edit update]
 
   root to: 'categories#index'
+
+  namespace :searches do
+    resources :categories, only: %i[index]
+  end
+
 end

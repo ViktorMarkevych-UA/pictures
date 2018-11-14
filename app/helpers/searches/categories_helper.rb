@@ -1,0 +1,2 @@
+module Searches::CategoriesHelper
+end

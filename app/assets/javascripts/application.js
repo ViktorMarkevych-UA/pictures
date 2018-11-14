@@ -12,8 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require freewall
 //= require pictures
+//= require categories/categories
+//= require jquery-ui/widgets/autocomplete
+//= require autocomplete-rails
 // require_tree .

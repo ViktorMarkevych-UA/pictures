@@ -4,7 +4,7 @@
       .input-group
         = text_field_tag :name, nil, id: 'tags',
                                                placeholder: 'Search for...', class: 'form-control',
-                                               data: { autocomplete_source: categories_path }
+                                               data: { autocomplete_source: searches_categories_path }
         %span.input-group-btn
           %button.btn.search
             %i.glyphicon.glyphicon-search
