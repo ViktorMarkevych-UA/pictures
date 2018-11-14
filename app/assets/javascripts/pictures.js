@@ -1,6 +1,6 @@
 //= require jquery.jcarousel.min.js
 
-$(document).ready(function() {
+$( document ).on('turbolinks:load', function() {
   manageLikes();
 });
 
