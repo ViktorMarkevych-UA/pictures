@@ -6,6 +6,7 @@ class PicturesController < ApplicationController
 
   def show
     @picture = Picture.find(params[:id])
+    @comment = @picture.comments.build
     @comments = @picture.comments.preload(:user)
     @pictures = @picture.category.pictures.where.not(id: @picture.id)
   end

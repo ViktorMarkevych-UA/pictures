@@ -7,8 +7,8 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     @comment.picture_id = params[:picture_id]
-    @comment.save!
-    redirect_to picture_path(@comment.picture)
+    @comment.save
+    redirect_to picture_path(params[:picture_id])
   end
 
   private
