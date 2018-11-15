@@ -8,8 +8,6 @@ describe CommentsController do
   let(:picture) { create :picture, category_id: category.id }
 
   before :each do
-    picture.reload
-
     sign_in user
   end
 

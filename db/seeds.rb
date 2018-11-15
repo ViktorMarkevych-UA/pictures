@@ -18,6 +18,10 @@ categories.each do |category|
     puts name
     p = Picture.new(name: name, image: File.open(Rails.root.to_s + "/db/images/#{category.name}/#{name}"), category: category)
     p.save!
+
+    [2,3,4,5].sample().times do |i|
+      Comment.create(body: Faker::Lorem.sentence(i + 1, true), user_id: user.id, picture_id: p.id)
+    end
   end
   puts '*'*100
 end

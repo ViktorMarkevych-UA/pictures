@@ -1,6 +1,6 @@
 class Picture < ActiveRecord::Base
   belongs_to :category
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :positive_likes
   has_many :negative_likes
   has_many :positive_users, through: :positive_likes, class_name: 'User'

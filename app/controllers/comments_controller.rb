@@ -11,7 +11,6 @@ class CommentsController < ApplicationController
     redirect_to picture_path(@comment.picture)
   end
 
-
   private
 
   def comment_params

@@ -32,6 +32,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'factory_bot'
+  gem 'faker'
 end
 
 group :test do
