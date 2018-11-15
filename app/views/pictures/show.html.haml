@@ -14,12 +14,12 @@
             %span
               = @picture.negative_likes_count
     %h4 Comments list
-    - @comments.each do |c|
-      .panel.panel-default
-        .panel-heading
-          = c.user.full_name
+    %div.overflow
+      - @comments.each do |c|
         .panel-body
-          = c.body
+          %p
+            %strong= c.user.full_name + ':'
+            = c.body
 .row
   .col-lg-8.col-sm-offset-2
     .jcarousel-wrapper
