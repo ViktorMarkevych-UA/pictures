@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   resources :pictures, only: %i[index show] do
     resources :negative_likes, only: %i[create]
     resources :positive_likes, only: %i[create]
+    resources :comments, only: %i[create]
   end
-  resources :comments, only: %i[index create]
 
   resource :users, only: %i[show edit update]
 
