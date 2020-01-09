@@ -1,10 +1,14 @@
 !!!
 %html
   %head
-    %title Cool Chat
-    = stylesheet_link_tag    'authorization', media: 'all'
-    = javascript_include_tag 'authorization'
+    %title Pictures
     = csrf_meta_tags
+    %meta{content: 'width=device-width,initial-scale=1', name: 'viewport'}/
+    %meta{charset: 'utf-8'}/
+    %meta{content: 'IE=edge,chrome=1', 'http-equiv': 'X-UA-Compatible'}/
+    = stylesheet_link_tag    'authorization', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
   %body
     .container-fluid
       .row{ style: 'padding-top: 100px;' }
